@@ -13,6 +13,7 @@ jobs:
         default: "${CIRCLE_BRANCH}"
     steps:
       - checkout
+      - command: echo << parameters.commit-desc >>
       - when:
           condition:
             matches:
