@@ -13,7 +13,7 @@ jobs:
           condition:
             matches:
               pattern: "^master$"
-              value: << pipeline.git.branch >>
+              value: "${CIRCLE_BRANCH}"
           steps:
             - run: echo "I am on master"
 
