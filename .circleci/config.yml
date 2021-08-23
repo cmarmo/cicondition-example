@@ -1,5 +1,8 @@
 version: 2.1
-
+parameters:
+  commit-desc:
+    type: string
+    default: "${CIRCLE_BRANCH}"
 jobs:
   my-job:
     docker:
@@ -7,18 +10,14 @@ jobs:
         auth:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-    parameters:
-      commit-desc:
-        type: string
-        default: "${CIRCLE_BRANCH}"
     steps:
       - checkout
-      - command: echo << parameters.commit-desc >>
+      - command: echo << pipeline.parameters.commit-desc >>
       - when:
           condition:
             matches:
               pattern: "^master$"
-              value: << parameters.commit-desc >>
+              value: << pipeline.parameters.commit-desc >>
           steps:
             - run: echo "I am on master"
 
