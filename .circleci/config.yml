@@ -1,8 +1,4 @@
 version: 2.1
-parameters:
-  commit-desc:
-    type: string
-    default: "${CIRCLE_BRANCH}"
 
 jobs:
   my-job:
@@ -11,6 +7,10 @@ jobs:
         auth:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+    parameters:
+      commit-desc:
+        type: string
+        default: "${CIRCLE_BRANCH}"
     steps:
       - checkout
       - when:
