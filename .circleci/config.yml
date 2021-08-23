@@ -16,7 +16,7 @@ jobs:
       - when:
           condition:
             matches:
-              pattern: "^master$"
+              pattern: "master"
               value: << pipeline.parameters.commit-desc >>
           steps:
             - run: echo "I am on master"
