@@ -1,4 +1,8 @@
 version: 2.1
+parameters:
+  commit-desc:
+    type: string
+    default: "${CIRCLE_BRANCH}"
 
 jobs:
   my-job:
