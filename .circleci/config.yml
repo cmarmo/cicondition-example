@@ -10,7 +10,7 @@ jobs:
     parameters:
       commit-desc:
         type: string
-        default: "${CIRCLE_BRANCH}"
+        default: "$CIRCLE_BRANCH"
     steps:
       - checkout
       - run: echo << parameters.commit-desc >>
