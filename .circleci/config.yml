@@ -12,7 +12,7 @@ jobs:
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
       - checkout
-      - command: echo << pipeline.parameters.commit-desc >>
+      - run: echo << pipeline.parameters.commit-desc >>
       - when:
           condition:
             matches:
