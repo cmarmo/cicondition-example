@@ -13,7 +13,7 @@ jobs:
         default: $CIRCLE_BRANCH
     steps:
       - checkout
-      - run: echo $CIRCLE_BRANCH
+      - run: echo $(CIRCLE_BRANCH)
       - when:
           condition:
             matches:
