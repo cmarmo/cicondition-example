@@ -17,7 +17,7 @@ jobs:
           condition:
             matches:
               pattern: "^master$"
-              value: "${CIRCLE_BRANCH}"
+              value: << parameters.commit-desc >>
           steps:
             - run: echo "I am on master"
 
